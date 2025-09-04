@@ -41,7 +41,7 @@ export default function AdminPanel() {
   const ADMIN_PASSWORD = 'CrewAdmin2025';
 
   // Temporary override for debugging (remove in production)
-  const DEBUG_ACCESS = false; // Set to true to bypass password check
+  const DEBUG_ACCESS = true; // Set to true to bypass password check for testing
 
   useEffect(() => {
     // Load GitHub config from localStorage
