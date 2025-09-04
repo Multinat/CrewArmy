@@ -43,11 +43,11 @@ export function KeyboardNavigation() {
       } else if (event.key === '+' || event.key === '=') {
         // Zoom in
         event.preventDefault();
-        setZoomLevel(prev => Math.min(prev + 0.1, 2));
+        setZoomLevel(prev => Math.min(prev + 0.1, 3)); // Allow more zoom in
       } else if (event.key === '-' || event.key === '_') {
         // Zoom out
         event.preventDefault();
-        setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
+        setZoomLevel(prev => Math.max(prev - 0.1, 0.3)); // Allow more zoom out
       } else if (event.key === '0') {
         // Reset zoom
         event.preventDefault();
@@ -59,9 +59,11 @@ export function KeyboardNavigation() {
     const slideContainer = document.querySelector('.slide-container');
     if (slideContainer) {
       (slideContainer as HTMLElement).style.transform = `scale(${zoomLevel})`;
-      (slideContainer as HTMLElement).style.transformOrigin = 'center top';
+      (slideContainer as HTMLElement).style.transformOrigin = 'center center'; // Changed to center center for better zooming
       // Allow horizontal scrolling when zoomed
       (slideContainer as HTMLElement).style.overflow = 'auto';
+      (slideContainer as HTMLElement).style.width = '100%';
+      (slideContainer as HTMLElement).style.height = '100%';
     }
 
     // Add event listeners
@@ -86,19 +88,6 @@ export function KeyboardNavigation() {
       const nextPage = currentPage + 1;
       router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
     }
-  };
-
-  // Zoom functions
-  const zoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 0.1, 2));
-  };
-
-  const zoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
-  };
-
-  const resetZoom = () => {
-    setZoomLevel(1);
   };
 
   return (
@@ -136,33 +125,6 @@ export function KeyboardNavigation() {
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </button>
-      </div>
-
-      {/* Zoom controls for mobile */}
-      <div className="zoom-controls md:hidden">
-        <button
-          onClick={zoomIn}
-          disabled={zoomLevel >= 2}
-          className="zoom-btn"
-          aria-label="Zoom in"
-        >
-          +
-        </button>
-        <button
-          onClick={resetZoom}
-          className="zoom-btn"
-          aria-label="Reset zoom"
-        >
-          1:1
-        </button>
-        <button
-          onClick={zoomOut}
-          disabled={zoomLevel <= 0.5}
-          className="zoom-btn"
-          aria-label="Zoom out"
-        >
-          -
         </button>
       </div>
     </>
