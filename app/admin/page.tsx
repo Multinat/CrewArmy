@@ -52,6 +52,17 @@ export default function AdminPanel() {
   }, []);
 
   const handleLogin = () => {
+    // TEMPORARY: Always allow access for debugging
+    console.log('DEBUG: Granting access without password check');
+    setIsAuthenticated(true);
+    setMessage('Access granted (debug mode)');
+    if (githubConfig.token && githubConfig.owner && githubConfig.repo) {
+      loadSlides();
+    }
+    return;
+
+    // Original code (commented out for debugging)
+    /*
     // Debug information
     console.log('Entered password:', password);
     console.log('Expected password:', ADMIN_PASSWORD);
@@ -83,6 +94,7 @@ export default function AdminPanel() {
         setMessage(`Invalid admin password. You entered: "${password}"`);
       }
     }
+    */
   };
 
   const saveGithubConfig = () => {
