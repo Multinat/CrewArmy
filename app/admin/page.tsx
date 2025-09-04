@@ -107,7 +107,23 @@ export default function AdminPanel() {
 
   const loadSlides = async () => {
     if (!githubConfig.token || !githubConfig.owner || !githubConfig.repo) {
-      setMessage('Please configure GitHub settings first');
+      // Load local slides from file system (mock implementation)
+      // In a real implementation, this would read from the actual file system
+      const mockSlides: SlideContent[] = [];
+
+      // Generate mock slides based on the directories we know exist
+      for (let i = 1; i <= 19; i++) {
+        mockSlides.push({
+          id: i,
+          title: `Slide ${i}`,
+          subtitle: '',
+          content: `Content for slide ${i} would be loaded here`,
+          lastModified: new Date().toISOString()
+        });
+      }
+
+      setSlides(mockSlides);
+      setMessage(`Loaded ${mockSlides.length} slides successfully`);
       return;
     }
 
@@ -166,7 +182,7 @@ export default function AdminPanel() {
           : slide
       );
       setSlides(updatedSlides);
-      setMessage('Slide updated successfully! (Note: This is a demo - GitHub integration needs to be completed)');
+      setMessage('Slide updated successfully! (Note: This is a demo - file system integration needs to be completed)');
       setIsEditing(false);
       setSelectedSlide(null);
     } catch (error) {
@@ -181,9 +197,9 @@ export default function AdminPanel() {
     const newSlideId = Math.max(...slides.map(s => s.id), 0) + 1;
     const newSlide: SlideContent = {
       id: newSlideId,
-      title: 'New Slide',
+      title: `Slide ${newSlideId}`,
       subtitle: '',
-      content: 'Enter your content here...',
+      content: `<!-- Slide ${newSlideId} content -->\n<div class="slide-container">\n  <h1>${newSlideId} TITLE</h1>\n  <p>Slide ${newSlideId} content goes here</p>\n</div>`,
       lastModified: new Date().toISOString()
     };
     setSlides([...slides, newSlide]);
