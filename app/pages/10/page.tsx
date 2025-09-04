@@ -1,5 +1,4 @@
-
-import { Droplet, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, HandHeart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart } from 'lucide-react';
+import { Droplet, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, Heart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart } from 'lucide-react';
 
 export default function Slide10() {
   return (
@@ -127,7 +126,7 @@ export default function Slide10() {
             {/* Support Activities */}
             <div className="bg-gray-700/50 rounded-xl p-5 border-l-4 border-amber-400">
               <div className="flex items-center gap-3 mb-3">
-                <HandHeart className="h-6 w-6 text-amber-400" />
+                <Heart className="h-6 w-6 text-amber-400" />
                 <h3 className="text-xl font-bold text-amber-400">SUPPORT ACTIVITIES</h3>
               </div>
               <div className="space-y-1.5 text-sm">

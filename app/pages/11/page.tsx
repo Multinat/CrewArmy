@@ -1,5 +1,4 @@
-
-import { Search, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, HandHeart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Clock, BarChart, Eye, Zap, RefreshCw, Settings, Timer } from 'lucide-react';
+import { Search, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, Heart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Clock, BarChart, Eye, Zap, RefreshCw, Settings, Timer } from 'lucide-react';
 
 export default function Slide11() {
   return (
@@ -127,7 +126,7 @@ export default function Slide11() {
             {/* Filler Support Activities */}
             <div className="bg-gray-700/50 rounded-xl p-5 border-l-4 border-amber-400">
               <div className="flex items-center gap-3 mb-3">
-                <HandHeart className="h-6 w-6 text-amber-400" />
+                <Heart className="h-6 w-6 text-amber-400" />
                 <h3 className="text-xl font-bold text-amber-400">FILLER SUPPORT</h3>
               </div>
               <div className="space-y-1.5 text-sm">

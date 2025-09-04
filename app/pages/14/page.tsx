@@ -1,6 +1,6 @@
 
 
-import { Tag, Shield, CheckCircle, TrendingUp, DollarSign, Users, Wrench, ArrowRightLeft, Coffee, HandHeart, RotateCcw, Target, Users2 } from 'lucide-react';
+import { Tag, Shield, CheckCircle, TrendingUp, DollarSign, Users, Wrench, ArrowRightLeft, Coffee, Heart, RotateCcw, Target, Users2 } from 'lucide-react';
 
 export default function Slide14() {
   return (

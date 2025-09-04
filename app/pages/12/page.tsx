@@ -1,6 +1,6 @@
 
 
-import { Thermometer, Shield, CheckCircle, TrendingUp, DollarSign, Users2, HandHeart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart, Target, Timer, Eye } from 'lucide-react';
+import { Thermometer, Shield, CheckCircle, TrendingUp, DollarSign, Users2, Heart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart, Target, Timer, Eye } from 'lucide-react';
 
 export default function Slide12() {
   return (
@@ -154,7 +154,7 @@ export default function Slide12() {
             {/* Filler Coordination */}
             <div className="bg-gray-700/50 rounded-xl p-5 border-l-4 border-amber-400">
               <div className="flex items-center gap-3 mb-3">
-                <HandHeart className="h-6 w-6 text-amber-400" />
+                <Heart className="h-6 w-6 text-amber-400" />
                 <h3 className="text-xl font-bold text-amber-400">FILLER COORDINATION</h3>
               </div>
               <div className="space-y-1.5 text-sm">
