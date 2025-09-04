@@ -1,0 +1,138 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+
+export function KeyboardNavigation() {
+  const router = useRouter();
+  const pathname = usePathname();
+  
+  // Extract current page from pathname
+  const getCurrentPage = () => {
+    if (pathname === '/') return 1;
+    const match = pathname.match(/\/pages\/(\d+)/);
+    return match ? parseInt(match[1]) : 1;
+  };
+  
+  const currentPage = getCurrentPage();
+  const totalPages = 18; // Based on your file structure
+
+  useEffect(() => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight' || event.key === ' ') {
+        event.preventDefault();
+        if (currentPage < totalPages) {
+          const nextPage = currentPage + 1;
+          router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
+        }
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        if (currentPage > 1) {
+          const prevPage = currentPage - 1;
+          router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
+        }
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        router.push('/');
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        router.push(`/pages/${totalPages}`);
+      }
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      touchStartX = event.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      touchEndX = event.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50; // Minimum distance for a swipe
+      const swipeDistance = touchStartX - touchEndX;
+
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+          // Swiped left - go to next slide
+          if (currentPage < totalPages) {
+            const nextPage = currentPage + 1;
+            router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
+          }
+        } else {
+          // Swiped right - go to previous slide
+          if (currentPage > 1) {
+            const prevPage = currentPage - 1;
+            router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
+          }
+        }
+      }
+    };
+
+    // Add event listeners
+    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [currentPage, totalPages, router]);
+
+  return (
+    <>
+      {/* Progress indicator */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-slate-800 z-50">
+        <div 
+          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ease-out"
+          style={{ width: `${(currentPage / totalPages) * 100}%` }}
+        />
+      </div>
+      
+      {/* Slide counter */}
+      <div className="fixed top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-mono z-40">
+        {currentPage} / {totalPages}
+      </div>
+
+      {/* Navigation buttons for mobile */}
+      <div className="fixed bottom-20 left-4 right-4 flex justify-between md:hidden z-40">
+        <button
+          onClick={() => {
+            if (currentPage > 1) {
+              const prevPage = currentPage - 1;
+              router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
+            }
+          }}
+          disabled={currentPage <= 1}
+          className="bg-black/50 backdrop-blur-sm rounded-full p-3 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button
+          onClick={() => {
+            if (currentPage < totalPages) {
+              const nextPage = currentPage + 1;
+              router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
+            }
+          }}
+          disabled={currentPage >= totalPages}
+          className="bg-black/50 backdrop-blur-sm rounded-full p-3 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </>
+  );
+}
