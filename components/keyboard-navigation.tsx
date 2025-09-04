@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 export function KeyboardNavigation() {
@@ -15,12 +15,12 @@ export function KeyboardNavigation() {
   };
   
   const currentPage = getCurrentPage();
-  const totalPages = 18; // Based on your file structure
+  const totalPages = 19; // Updated to 19 based on your file structure
+
+  // State for zoom functionality
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
-    let touchStartX = 0;
-    let touchEndX = 0;
-
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'ArrowRight' || event.key === ' ') {
         event.preventDefault();
@@ -40,51 +40,64 @@ export function KeyboardNavigation() {
       } else if (event.key === 'End') {
         event.preventDefault();
         router.push(`/pages/${totalPages}`);
+      } else if (event.key === '+' || event.key === '=') {
+        // Zoom in
+        event.preventDefault();
+        setZoomLevel(prev => Math.min(prev + 0.1, 2));
+      } else if (event.key === '-' || event.key === '_') {
+        // Zoom out
+        event.preventDefault();
+        setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
+      } else if (event.key === '0') {
+        // Reset zoom
+        event.preventDefault();
+        setZoomLevel(1);
       }
     };
 
-    const handleTouchStart = (event: TouchEvent) => {
-      touchStartX = event.changedTouches[0].screenX;
-    };
-
-    const handleTouchEnd = (event: TouchEvent) => {
-      touchEndX = event.changedTouches[0].screenX;
-      handleSwipe();
-    };
-
-    const handleSwipe = () => {
-      const swipeThreshold = 50; // Minimum distance for a swipe
-      const swipeDistance = touchStartX - touchEndX;
-
-      if (Math.abs(swipeDistance) > swipeThreshold) {
-        if (swipeDistance > 0) {
-          // Swiped left - go to next slide
-          if (currentPage < totalPages) {
-            const nextPage = currentPage + 1;
-            router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
-          }
-        } else {
-          // Swiped right - go to previous slide
-          if (currentPage > 1) {
-            const prevPage = currentPage - 1;
-            router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
-          }
-        }
-      }
-    };
+    // Apply zoom to the slide container
+    const slideContainer = document.querySelector('.slide-container');
+    if (slideContainer) {
+      (slideContainer as HTMLElement).style.transform = `scale(${zoomLevel})`;
+      (slideContainer as HTMLElement).style.transformOrigin = 'center top';
+    }
 
     // Add event listeners
     document.addEventListener('keydown', handleKeyPress);
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
 
     // Cleanup
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentPage, totalPages, router]);
+  }, [currentPage, totalPages, router, zoomLevel]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      const prevPage = currentPage - 1;
+      router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
+    }
+  };
+
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      const nextPage = currentPage + 1;
+      router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
+    }
+  };
+
+  // Zoom functions
+  const zoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.1, 2));
+  };
+
+  const zoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.1, 0.5));
+  };
+
+  const resetZoom = () => {
+    setZoomLevel(1);
+  };
 
   return (
     <>
@@ -104,12 +117,7 @@ export function KeyboardNavigation() {
       {/* Navigation buttons for mobile */}
       <div className="fixed bottom-20 left-4 right-4 flex justify-between md:hidden z-40">
         <button
-          onClick={() => {
-            if (currentPage > 1) {
-              const prevPage = currentPage - 1;
-              router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
-            }
-          }}
+          onClick={goToPrevious}
           disabled={currentPage <= 1}
           className="bg-black/50 backdrop-blur-sm rounded-full p-3 disabled:opacity-30 disabled:cursor-not-allowed"
         >
@@ -119,18 +127,40 @@ export function KeyboardNavigation() {
         </button>
         
         <button
-          onClick={() => {
-            if (currentPage < totalPages) {
-              const nextPage = currentPage + 1;
-              router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
-            }
-          }}
+          onClick={goToNext}
           disabled={currentPage >= totalPages}
           className="bg-black/50 backdrop-blur-sm rounded-full p-3 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
+        </button>
+      </div>
+
+      {/* Zoom controls for mobile */}
+      <div className="zoom-controls md:hidden">
+        <button
+          onClick={zoomIn}
+          disabled={zoomLevel >= 2}
+          className="zoom-btn"
+          aria-label="Zoom in"
+        >
+          +
+        </button>
+        <button
+          onClick={resetZoom}
+          className="zoom-btn"
+          aria-label="Reset zoom"
+        >
+          1:1
+        </button>
+        <button
+          onClick={zoomOut}
+          disabled={zoomLevel <= 0.5}
+          className="zoom-btn"
+          aria-label="Zoom out"
+        >
+          -
         </button>
       </div>
     </>
