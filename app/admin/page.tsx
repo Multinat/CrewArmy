@@ -37,8 +37,8 @@ export default function AdminPanel() {
     repo: ''
   });
 
-  // Simple password authentication
-  const ADMIN_PASSWORD = 'crew2025';
+  // Admin password - different from presentation password
+  const ADMIN_PASSWORD = 'CrewAdmin2025';
 
   useEffect(() => {
     // Load GitHub config from localStorage
@@ -56,7 +56,7 @@ export default function AdminPanel() {
         loadSlides();
       }
     } else {
-      setMessage('Invalid password');
+      setMessage('Invalid admin password');
     }
   };
 
@@ -157,9 +157,14 @@ export default function AdminPanel() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
         <Card className="w-full max-w-md p-6 bg-black/50 backdrop-blur-sm border-slate-700">
-          <h1 className="text-2xl font-bold text-white mb-6 text-center">
-            Presentation Admin
-          </h1>
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-bold text-white mb-2">
+              Admin Panel
+            </h1>
+            <p className="text-gray-400">
+              Authorized administrators only
+            </p>
+          </div>
           <div className="space-y-4">
             <input
               type="password"
@@ -170,13 +175,18 @@ export default function AdminPanel() {
               className="w-full p-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <Button onClick={handleLogin} className="w-full" disabled={isLoading}>
-              {isLoading ? 'Logging in...' : 'Login'}
+              {isLoading ? 'Logging in...' : 'Access Admin Panel'}
             </Button>
             {message && (
               <Alert className="border-red-500 bg-red-500/10">
                 <AlertDescription className="text-red-400">{message}</AlertDescription>
               </Alert>
             )}
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-xs text-gray-500">
+              Need access? Contact your system administrator
+            </p>
           </div>
         </Card>
       </div>
@@ -187,7 +197,7 @@ export default function AdminPanel() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-white">Presentation Admin</h1>
+          <h1 className="text-3xl font-bold text-white">Admin Panel</h1>
           <div className="flex gap-4">
             <Button onClick={handleCreateSlide} className="bg-green-600 hover:bg-green-700">
               Create New Slide
@@ -235,7 +245,7 @@ export default function AdminPanel() {
                 type="text"
                 value={githubConfig.owner}
                 onChange={(e) => setGithubConfig({...githubConfig, owner: e.target.value})}
-                placeholder="username"
+                placeholder="Multinat"
                 className="w-full p-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -247,7 +257,7 @@ export default function AdminPanel() {
                 type="text"
                 value={githubConfig.repo}
                 onChange={(e) => setGithubConfig({...githubConfig, repo: e.target.value})}
-                placeholder="repo-name"
+                placeholder="CrewArmy"
                 className="w-full p-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
