@@ -40,6 +40,9 @@ export default function AdminPanel() {
   // Admin password - different from presentation password
   const ADMIN_PASSWORD = 'CrewAdmin2025';
 
+  // Temporary override for debugging (remove in production)
+  const DEBUG_ACCESS = false; // Set to true to bypass password check
+
   useEffect(() => {
     // Load GitHub config from localStorage
     const savedConfig = localStorage.getItem('github-config');
@@ -49,6 +52,22 @@ export default function AdminPanel() {
   }, []);
 
   const handleLogin = () => {
+    // Debug information
+    console.log('Entered password:', password);
+    console.log('Expected password:', ADMIN_PASSWORD);
+    console.log('Password match:', password === ADMIN_PASSWORD);
+
+    // Temporary debug override
+    if (DEBUG_ACCESS) {
+      console.log('DEBUG ACCESS: Bypassing password check');
+      setIsAuthenticated(true);
+      setMessage('');
+      if (githubConfig.token && githubConfig.owner && githubConfig.repo) {
+        loadSlides();
+      }
+      return;
+    }
+
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       setMessage('');
@@ -57,6 +76,12 @@ export default function AdminPanel() {
       }
     } else {
       setMessage('Invalid admin password');
+      // More detailed error message for debugging
+      if (password.trim() === '') {
+        setMessage('Please enter a password');
+      } else {
+        setMessage(`Invalid admin password. You entered: "${password}"`);
+      }
     }
   };
 
