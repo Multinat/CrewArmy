@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Crew Army Presentation - Secure Access',
   description: 'A secure, mobile-responsive interactive presentation for Crew Army team members',
-  viewport: 'width=device-width, initial-scale=1',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
 };
 
 export default function RootLayout({
@@ -20,12 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen`}>
+      <body className={`${inter.className} bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen overflow-hidden`}>
         <AuthWrapper>
           <Suspense fallback={<div>Loading...</div>}>
             <KeyboardNavigation />
           </Suspense>
-          {children}
+          <div className="w-full h-screen overflow-hidden">
+            {children}
+          </div>
           
           {/* Mobile navigation hint */}
           <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 md:hidden">

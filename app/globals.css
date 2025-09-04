@@ -24,10 +24,9 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent double scrollbars */
 }
 
 body {
@@ -38,6 +37,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  overflow: hidden; /* Prevent double scrollbars */
 }
 
 a {
@@ -53,9 +55,9 @@ a {
 
 /* Mobile-first responsive slide container */
 .slide-container {
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  width: 100vw; /* Full viewport width */
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
@@ -63,12 +65,13 @@ a {
   justify-content: center;
   align-items: center;
   overflow: auto; /* Allow scrolling if content overflows */
-  touch-action: pan-x pan-y; /* Enable panning */
+  touch-action: pan-x pan-y pinch-zoom; /* Enable all touch actions */
   position: relative;
-  /* Ensure content can be panned horizontally */
+  /* Ensure content can be panned in all directions */
   overscroll-behavior: contain;
-  /* Improve panning experience */
   transform-origin: center center;
+  /* Important for zooming */
+  flex-shrink: 0;
 }
 
 /* Tablet and larger screens */

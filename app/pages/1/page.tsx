@@ -1,4 +1,22 @@
+'use client';
+
+import { useEffect } from 'react';
+
 export default function Slide1() {
+  useEffect(() => {
+    // Get the slide container element
+    const slideContainer = document.querySelector('.slide-container');
+    
+    if (slideContainer) {
+      // Reset transform when component mounts
+      (slideContainer as HTMLElement).style.transform = 'scale(1)';
+      (slideContainer as HTMLElement).style.transformOrigin = 'center center';
+      
+      // Ensure proper overflow handling
+      (slideContainer as HTMLElement).style.overflow = 'auto';
+    }
+  }, []);
+
   return (
     <div className="slide-container">
       {/* Top Section - Main Title */}
