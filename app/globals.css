@@ -26,7 +26,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Prevent double scrollbars */
+  overflow: hidden;
 }
 
 body {
@@ -38,8 +38,8 @@ body {
     )
     rgb(var(--background-start-rgb));
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
-  overflow: hidden; /* Prevent double scrollbars */
+  height: 100dvh;
+  overflow: hidden;
 }
 
 a {
@@ -55,23 +55,31 @@ a {
 
 /* Mobile-first responsive slide container */
 .slide-container {
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
   height: 100vh;
-  height: 100dvh; /* Dynamic viewport height for mobile */
+  height: 100dvh;
   padding: 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: auto; /* Allow scrolling if content overflows */
-  touch-action: pan-x pan-y pinch-zoom; /* Enable all touch actions */
   position: relative;
-  /* Ensure content can be panned in all directions */
-  overscroll-behavior: contain;
-  transform-origin: center center;
-  /* Important for zooming */
   flex-shrink: 0;
+  /* Enable panning */
+  touch-action: pan-x pan-y pinch-zoom;
+  /* Allow content to overflow */
+  overflow: auto;
+  /* Ensure smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* When zoomed, allow panning in all directions */
+.slide-container.zoomed {
+  /* Content can be larger than viewport when zoomed */
+  overflow: scroll;
+  /* Enable smooth panning */
+  scroll-behavior: smooth;
 }
 
 /* Tablet and larger screens */

@@ -1,13 +1,11 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 export function KeyboardNavigation() {
   const router = useRouter();
   const pathname = usePathname();
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const slideContainerRef = useRef<HTMLDivElement | null>(null);
   
   // Extract current page from pathname
   const getCurrentPage = () => {
@@ -19,28 +17,11 @@ export function KeyboardNavigation() {
   const currentPage = getCurrentPage();
   const totalPages = 19; // Updated to 19 based on your file structure
 
-  // Navigation functions
-  const goToPrevious = () => {
-    if (currentPage > 1) {
-      const prevPage = currentPage - 1;
-      router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
-    }
-  };
-
-  const goToNext = () => {
-    if (currentPage < totalPages) {
-      const nextPage = currentPage + 1;
-      router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
-    }
-  };
+  // State for zoom functionality
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // Reset zoom level when navigating to a new page
-      if (event.key === 'ArrowRight' || event.key === ' ' || event.key === 'ArrowLeft') {
-        setZoomLevel(1);
-      }
-      
       if (event.key === 'ArrowRight' || event.key === ' ') {
         event.preventDefault();
         if (currentPage < totalPages) {
@@ -75,16 +56,19 @@ export function KeyboardNavigation() {
     };
 
     // Apply zoom to the slide container
-    const applyZoom = () => {
-      if (slideContainerRef.current) {
-        slideContainerRef.current.style.transform = `scale(${zoomLevel})`;
-        slideContainerRef.current.style.transformOrigin = 'center center';
-        // Allow horizontal scrolling when zoomed
-        slideContainerRef.current.style.overflow = 'auto';
+    const slideContainer = document.querySelector('.slide-container');
+    if (slideContainer) {
+      // Apply zoom transform
+      (slideContainer as HTMLElement).style.transform = `scale(${zoomLevel})`;
+      (slideContainer as HTMLElement).style.transformOrigin = 'center center';
+      
+      // Add or remove zoomed class based on zoom level
+      if (zoomLevel !== 1) {
+        (slideContainer as HTMLElement).classList.add('zoomed');
+      } else {
+        (slideContainer as HTMLElement).classList.remove('zoomed');
       }
-    };
-
-    applyZoom();
+    }
 
     // Add event listeners
     document.addEventListener('keydown', handleKeyPress);
@@ -94,6 +78,21 @@ export function KeyboardNavigation() {
       document.removeEventListener('keydown', handleKeyPress);
     };
   }, [currentPage, totalPages, router, zoomLevel]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    if (currentPage > 1) {
+      const prevPage = currentPage - 1;
+      router.push(prevPage === 1 ? '/' : `/pages/${prevPage}`);
+    }
+  };
+
+  const goToNext = () => {
+    if (currentPage < totalPages) {
+      const nextPage = currentPage + 1;
+      router.push(nextPage === 1 ? '/' : `/pages/${nextPage}`);
+    }
+  };
 
   return (
     <>
@@ -132,12 +131,6 @@ export function KeyboardNavigation() {
           </svg>
         </button>
       </div>
-      
-      {/* Hidden div to hold the ref for zooming */}
-      <div 
-        ref={slideContainerRef} 
-        style={{ display: 'none' }} 
-      />
     </>
   );
 }
