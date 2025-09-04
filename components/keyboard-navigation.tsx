@@ -60,6 +60,8 @@ export function KeyboardNavigation() {
     if (slideContainer) {
       (slideContainer as HTMLElement).style.transform = `scale(${zoomLevel})`;
       (slideContainer as HTMLElement).style.transformOrigin = 'center top';
+      // Allow horizontal scrolling when zoomed
+      (slideContainer as HTMLElement).style.overflow = 'auto';
     }
 
     // Add event listeners

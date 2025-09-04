@@ -2,7 +2,7 @@ export default function Slide1() {
   return (
     <div className="slide-container">
       {/* Top Section - Main Title */}
-      <div className="text-center mb-6 md:mb-8">
+      <div className="text-center mb-6 md:mb-8 w-full">
         <h1 className="slide-title font-bold text-yellow-400 mb-2 md:mb-4 px-4">
           2025 TEAM ARMY EXCELLENCE STRATEGY
         </h1>
@@ -40,7 +40,7 @@ export default function Slide1() {
       </div>
 
       {/* Bottom Section - Year Identifier */}
-      <div className="text-center mt-6 md:mt-8">
+      <div className="text-center mt-6 md:mt-8 w-full">
         <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white opacity-80">2025</p>
         <p className="text-base md:text-xl lg:text-2xl text-gray-300">Strategic Implementation Framework</p>
       </div>
