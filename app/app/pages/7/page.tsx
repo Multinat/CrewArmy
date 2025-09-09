@@ -66,10 +66,10 @@ export default function Slide7() {
   ];
 
   return (
-    <div className="w-[1920px] h-[1080px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col p-8 text-white">
+    <div className="slide-container w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col p-4 md:p-6 lg:p-8 text-white">
       {/* Header */}
       <header className="flex-none text-center mb-6">
-        <h1 className="text-6xl font-bold">CREW ARMY METHOD AND PRINCIPLES</h1>
+        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">CREW ARMY METHOD AND PRINCIPLES</h1>
         <p className="text-2xl text-gray-300 mt-2">Our Method and Principle</p>
       </header>
 
