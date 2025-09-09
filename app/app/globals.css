@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent horizontal scrolling on mobile */
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Mobile-first responsive slide container */
+.slide-container {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  /* Enable panning and scrolling on mobile */
+  touch-action: manipulation;
+  /* Allow content to overflow and scroll */
+  overflow: auto;
+  /* Prevent text selection during panning */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Ensure content is properly scaled */
+  transform-origin: center center;
+  /* Ensure full screen display */
+  max-width: 100vw;
+  max-height: 100vh;
+  max-height: 100dvh;
+  /* Enable smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* When zoomed, allow panning in all directions */
+.slide-container.zoomed {
+  /* Content can be larger than viewport when zoomed */
+  overflow: scroll;
+  /* Enable smooth panning */
+  scroll-behavior: smooth;
+  /* Ensure content can be panned in all directions */
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .slide-container {
+    padding: 2rem;
+  }
+}
+
+/* Desktop screens */
+@media (min-width: 1024px) {
+  .slide-container {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1920px) {
+  .slide-container {
+    max-width: 1600px;
+    padding: 4rem;
+  }
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    padding: 1.5rem;
+  }
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+@media (min-width: 768px) {
+  .metric-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Responsive text scaling */
+.slide-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .slide-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .slide-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide-title {
+    font-size: 3rem;
+  }
+}
+
+/* Navigation hints for mobile */
+.mobile-nav-hint {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+  .mobile-nav-hint {
+    display: none;
+  }
+}
