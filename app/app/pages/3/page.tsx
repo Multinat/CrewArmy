@@ -3,12 +3,12 @@ import { Shield, Users, UserCheck } from 'lucide-react';
 
 export default function Slide3() {
   return (
-    <div className="relative overflow-hidden w-[1920px] h-[1080px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
       <div className="flex-none text-center py-8">
         <div className="flex items-center justify-center space-x-4 mb-4">
           <Shield size={64} className="text-yellow-400" />
-          <h1 className="text-7xl font-bold text-yellow-400">SAFETY FIRST</h1>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-yellow-400">SAFETY FIRST</h1>
         </div>
         <p className="text-4xl text-gray-200">Zero Incidents Through Proactive Prevention</p>
       </div>
