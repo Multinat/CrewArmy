@@ -3,12 +3,12 @@ import { Layers, Shield, CheckCircle, TrendingUp, DollarSign } from 'lucide-reac
 
 export default function Slide17() {
   return (
-    <div className="relative overflow-hidden w-[1920px] h-[1080px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
       <div className="flex-none text-center py-6">
         <div className="flex items-center justify-center space-x-4 mb-3">
           <Layers size={56} className="text-emerald-400" />
-          <h1 className="text-6xl font-bold text-white">DEPALLETISER/PALLETISER</h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">DEPALLETISER/PALLETISER</h1>
         </div>
         <p className="text-3xl text-gray-300">Crew Army Roles & Responsibilities</p>
       </div>

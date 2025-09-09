@@ -2,12 +2,12 @@ import { Search, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, He
 
 export default function Slide11() {
   return (
-    <div className="relative overflow-hidden w-[1920px] h-[1080px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
       {/* Header */}
       <div className="flex items-center justify-center py-4">
         <div className="flex items-center gap-4">
           <Search className="h-10 w-10 text-cyan-400" />
-          <h1 className="text-5xl font-bold text-center">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
             EBI - ROLES & RESPONSIBILITIES
           </h1>
         </div>

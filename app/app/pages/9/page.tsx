@@ -3,10 +3,10 @@ import { Zap, Target, Crown } from 'lucide-react';
 
 export default function Slide9() {
   return (
-    <div className="relative overflow-hidden w-[1920px] h-[1080px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
       <div className="flex-none text-center py-6">
-        <h1 className="text-6xl font-bold text-white mb-2">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
           NEXT STEPS
         </h1>
         <p className="text-3xl text-gray-200">Your Journey to Autonomous Excellence Starts Now</p>
