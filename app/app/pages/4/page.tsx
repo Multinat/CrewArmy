@@ -3,7 +3,7 @@ import { CheckCircle, Users, Cog } from 'lucide-react';
 
 export default function Slide4() {
   return (
-    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col lg:pt-12">
       {/* Header */}
       <div className="flex-none text-center py-4">
         <div className="flex items-center justify-center space-x-4 mb-2">
