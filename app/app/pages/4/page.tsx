@@ -5,24 +5,24 @@ export default function Slide4() {
   return (
     <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
-      <div className="flex-none text-center py-6">
-        <div className="flex items-center justify-center space-x-4 mb-3">
-          <CheckCircle size={56} className="text-green-400" />
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-green-400">QUALITY ALWAYS</h1>
+      <div className="flex-none text-center py-4 md:py-6">
+        <div className="flex items-center justify-center space-x-4 mb-2 md:mb-3">
+          <CheckCircle size={48} className="md:w-14 md:h-14 text-green-400" />
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-400">QUALITY ALWAYS</h1>
         </div>
-        <p className="text-3xl text-gray-200">Right First Time Through Continuous Excellence</p>
+        <p className="text-2xl md:text-3xl text-gray-200">Right First Time Through Continuous Excellence</p>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 grid grid-cols-2 gap-8 px-8">
+      <div className="flex-1 grid grid-cols-2 gap-4 md:gap-6 lg:gap-8 px-4 md:px-6 lg:px-8">
         {/* Column 1: Frontline Responsibilities & Success Metrics */}
-        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-green-400 rounded-lg p-6 flex flex-col min-h-0">
-          <div className="flex items-center space-x-3 mb-4">
-            <Users size={32} className="text-green-400" />
-            <h3 className="text-2xl font-bold text-white">FRONTLINE RESPONSIBILITIES</h3>
+        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-green-400 rounded-lg p-4 md:p-5 lg:p-6 flex flex-col min-h-0">
+          <div className="flex items-center space-x-3 mb-2 md:mb-3">
+            <Users size={28} className="md:w-8 md:h-8 text-green-400" />
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white">FRONTLINE RESPONSIBILITIES</h3>
           </div>
 
-          <div className="space-y-3 mb-6 flex-1">
+          <div className="space-y-2 md:space-y-3 mb-3 md:mb-4 flex-1">
             <div className="flex items-start space-x-2">
               <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
               <p className="text-lg text-gray-200">Execute standardized packaging procedures and quality checks consistently</p>
@@ -49,9 +49,9 @@ export default function Slide4() {
             </div>
           </div>
 
-          <div className="bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-lg p-4">
-            <h4 className="text-lg font-bold text-green-400 mb-3">SUCCESS METRICS</h4>
-            <div className="grid grid-cols-2 gap-2 text-sm">
+          <div className="bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-lg p-3 md:p-4">
+            <h4 className="text-base md:text-lg font-bold text-green-400 mb-2">SUCCESS METRICS</h4>
+            <div className="grid grid-cols-2 gap-1 md:gap-2 text-xs md:text-sm">
               <p className="text-gray-300">• First-pass quality rate &gt;98%</p>
               <p className="text-gray-300">• Customer complaint reduction</p>
               <p className="text-gray-300">• Quality audit scores improvement</p>
@@ -63,13 +63,13 @@ export default function Slide4() {
         </div>
 
         {/* Column 2: Specific Operator Actions */}
-        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-green-400 rounded-lg p-6 flex flex-col min-h-0">
-          <div className="flex items-center space-x-3 mb-4">
-            <Cog size={32} className="text-green-400" />
-            <h3 className="text-2xl font-bold text-white">SPECIFIC OPERATOR ACTIONS</h3>
+        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-green-400 rounded-lg p-4 md:p-5 lg:p-6 flex flex-col min-h-0">
+          <div className="flex items-center space-x-3 mb-2 md:mb-3">
+            <Cog size={28} className="md:w-8 md:h-8 text-green-400" />
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white">SPECIFIC OPERATOR ACTIONS</h3>
           </div>
 
-          <div className="space-y-4 flex-1 overflow-hidden">
+          <div className="space-y-2 md:space-y-3 flex-1 overflow-hidden">
             {/* Quality Control Procedures */}
             <div>
               <h4 className="text-lg font-semibold text-green-300 mb-2">Quality Control Procedures</h4>

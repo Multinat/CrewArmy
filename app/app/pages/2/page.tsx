@@ -12,7 +12,7 @@ export default function Slide2() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 px-2 md:px-4 lg:px-8">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8 px-2 md:px-4 lg:px-8">
         {/* Left Panel - VPO Wheel */}
         <div className="flex items-center justify-center">
           <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px]">
@@ -74,13 +74,13 @@ export default function Slide2() {
         </div>
 
         {/* Right Panel - Autonomous Team Approach */}
-        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-blue-400 rounded-lg p-4 md:p-6 lg:p-8 flex flex-col">
-          <div className="flex items-center space-x-2 md:space-x-4 mb-4 md:mb-6">
+        <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-blue-400 rounded-lg p-3 md:p-4 lg:p-6 flex flex-col">
+          <div className="flex items-center space-x-2 md:space-x-4 mb-2 md:mb-4">
             <Users size={24} className="md:w-8 md:h-8 text-blue-400" />
             <h3 className="text-lg md:text-2xl lg:text-3xl font-bold text-white">AUTONOMOUS TEAM APPROACH</h3>
           </div>
 
-          <div className="space-y-2 md:space-y-4 flex-1">
+          <div className="space-y-1 md:space-y-2 flex-1">
             <div className="flex items-start space-x-2 md:space-x-3">
               <div className="w-2 h-2 bg-blue-400 rounded-full mt-1 md:mt-2 flex-shrink-0"></div>
               <p className="text-sm md:text-base lg:text-lg text-gray-200">Frontline teams empowered to make real-time operational decisions</p>
@@ -112,9 +112,9 @@ export default function Slide2() {
             </div>
           </div>
 
-          <div className="mt-4 md:mt-6 lg:mt-8 bg-blue-500 bg-opacity-10 border border-blue-500 border-opacity-30 rounded-lg p-3 md:p-4 lg:p-6">
-            <h4 className="text-lg md:text-xl font-bold text-blue-400 mb-2 md:mb-4">CORE ENABLERS</h4>
-            <div className="space-y-2 md:space-y-3">
+          <div className="mt-2 md:mt-3 lg:mt-4 bg-blue-500 bg-opacity-10 border border-blue-500 border-opacity-30 rounded-lg p-2 md:p-3 lg:p-4">
+            <h4 className="text-base md:text-lg font-bold text-blue-400 mb-1 md:mb-2">CORE ENABLERS</h4>
+            <div className="space-y-1 md:space-y-2">
               <p className="text-sm md:text-base text-gray-300">• Clear authority and decision-making boundaries</p>
               <p className="text-sm md:text-base text-gray-300">• Real-time performance visibility and metrics</p>
               <p className="text-sm md:text-base text-gray-300">• Structured problem-solving methodologies</p>
