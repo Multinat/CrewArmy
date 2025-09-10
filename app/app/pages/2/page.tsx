@@ -6,11 +6,15 @@ export default function Slide2() {
       {/* Invisible spacer to push content below browser menu */}
       <div className="h-10"></div>
       {/* Header */}
-      <div className="flex-none text-center mb-4 md:pt-8 lg:pt-12">
-        <h1 className="text-2xl font-bold">
-          OPERATIONAL EXCELLENCE FRAMEWORK
-        </h1>
-        <p className="text-lg text-gray-300 mt-2">Four Pillars of Crew Army Success</p>
+      <div className="flex items-center justify-center py-2 md:py-16 lg:py-24 md:mt-16 lg:mt-24">
+        <div className="flex items-center gap-2 md:gap-4">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
+            OPERATIONAL EXCELLENCE FRAMEWORK
+          </h1>
+        </div>
+      </div>
+      <div className="text-center mb-4">
+        <p className="text-lg text-gray-300">Four Pillars of Crew Army Success</p>
       </div>
 
       {/* Main Content */}

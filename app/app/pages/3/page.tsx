@@ -7,7 +7,7 @@ export default function Slide3() {
       {/* Invisible spacer to push content below browser menu */}
       <div className="h-10"></div>
       {/* Header */}
-      <div className="flex items-center justify-center py-2 md:py-4">
+      <div className="flex items-center justify-center py-2 md:py-16 lg:py-24 md:mt-16 lg:mt-24">
         <div className="flex items-center gap-2 md:gap-4">
           <Shield className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-yellow-400" />
           <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
