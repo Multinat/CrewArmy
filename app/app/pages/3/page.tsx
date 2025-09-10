@@ -3,7 +3,9 @@ import { Shield, Users, UserCheck } from 'lucide-react';
 
 export default function Slide3() {
   return (
-    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col lg:pt-12">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+      {/* Invisible spacer to push content below browser menu */}
+      <div className="h-10"></div>
       {/* Header */}
       <div className="flex items-center justify-center py-2 md:py-4">
         <div className="flex items-center gap-2 md:gap-4">
