@@ -82,7 +82,7 @@ export default function Slide15() {
   return (
     <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-center py-2 md:py-4">
+      <div className="flex items-center justify-center">
         <div className="flex items-center justify-center space-x-4 mb-3">
           <Target size={56} className="text-cyan-400" />
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">BACKEND RACI MATRIX</h1>
