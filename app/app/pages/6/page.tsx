@@ -5,7 +5,7 @@ export default function Slide6() {
   return (
     <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col lg:pt-12">
       {/* Header */}
-      <div className="flex-none text-center py-4">
+      <div className="flex-none text-center py-2 lg:py-6">
         <div className="flex items-center justify-center space-x-4 mb-2">
           <DollarSign size={48} className="text-purple-400" />
           <h1 className="text-2xl font-bold text-purple-400">COST</h1>
