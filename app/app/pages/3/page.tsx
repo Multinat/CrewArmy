@@ -5,12 +5,13 @@ export default function Slide3() {
   return (
     <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col lg:pt-12">
       {/* Header */}
-      <div className="flex-none text-center py-2 md:py-8 lg:py-12">
-        <div className="flex items-center justify-center space-x-4 mb-2">
-          <Shield size={48} className="text-yellow-400" />
-          <h1 className="text-2xl font-bold text-yellow-400">SAFETY FIRST</h1>
+      <div className="flex items-center justify-center py-2 md:py-4">
+        <div className="flex items-center gap-2 md:gap-4">
+          <Shield className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-yellow-400" />
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
+            SAFETY FIRST - Zero Incidents Through Proactive Prevention
+          </h1>
         </div>
-        <p className="text-2xl text-gray-200">Zero Incidents Through Proactive Prevention</p>
       </div>
 
       {/* Main Content */}
