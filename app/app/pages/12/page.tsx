@@ -1,6 +1,4 @@
-
-
-import { Thermometer, Shield, CheckCircle, TrendingUp, DollarSign, Users2, Heart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart, Target, Timer, Eye } from 'lucide-react';
+import { Droplet, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, Heart, ArrowRightLeft, AlertCircle, Coffee, MessageCircle, FileText, MessageSquare, ClipboardList, Camera, AlertTriangle, Lock, Users, Wrench, Play, RotateCcw, Search, Clock, BarChart } from 'lucide-react';
 
 export default function Slide12() {
   return (
@@ -8,9 +6,9 @@ export default function Slide12() {
       {/* Header */}
       <div className="flex items-center justify-center py-2 md:py-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <Thermometer className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-red-400" />
+          <Droplet className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-blue-400" />
           <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
-            PASTEURISER - ROLES & RESPONSIBILITIES
+            PAGE 12 - ROLES & RESPONSIBILITIES
           </h1>
         </div>
       </div>
@@ -19,9 +17,9 @@ export default function Slide12() {
       <div className="px-2 md:px-6 lg:px-12 pb-4 md:pb-6 lg:pb-8 flex-1">
         {/* Primary Roles Section */}
         <div className="mb-4 md:mb-6">
-          <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-red-400 mb-2 md:mb-4 flex items-center gap-2 md:gap-3">
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-blue-400 mb-2 md:mb-4 flex items-center gap-2 md:gap-3">
             <Target className="h-5 w-5 md:h-6 md:w-6 lg:h-7 lg:w-7" />
-            <span className="text-sm md:text-base lg:text-lg">PRIMARY ROLES: Pasteuriser Operations</span>
+            <span className="text-sm md:text-base lg:text-lg">PRIMARY ROLES: Filler & Pasteuriser Operations</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
@@ -34,37 +32,37 @@ export default function Slide12() {
               <div className="space-y-1 md:space-y-1.5 text-xs md:text-sm">
                 <div className="flex items-start gap-2">
                   <AlertTriangle className="h-3 w-3 text-yellow-400 mt-1 flex-shrink-0" />
-                  <span>Monitor high-temperature zones and maintain safe operating distances</span>
+                  <span>Identify & mitigate high-pressure filling hazards</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Lock className="h-3 w-3 text-yellow-400 mt-1 flex-shrink-0" />
-                  <span>Follow lockout procedures for maintenance on heating systems</span>
+                  <span>Execute LOTO procedures during maintenance</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Users className="h-3 w-3 text-yellow-400 mt-1 flex-shrink-0" />
-                  <span>Report steam leaks, unusual temperatures, or pressure anomalies</span>
+                  <span>Coach team members on safe operation</span>
                 </div>
               </div>
             </div>
 
             {/* Quality Always - Primary */}
-            <div className="bg-gray-800/60 rounded-xl p-3 md:p-4 lg:p-5 border-l-4 border-green-400">
-              <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                <CheckCircle className="h-5 w-5 md:h-6 md:w-6 text-green-400" />
-                <h3 className="text-base md:text-lg lg:text-xl font-bold text-green-400">QUALITY ALWAYS</h3>
+            <div className="bg-gray-800/60 rounded-xl p-5 border-l-4 border-green-400">
+              <div className="flex items-center gap-3 mb-3">
+                <CheckCircle className="h-6 w-6 text-green-400" />
+                <h3 className="text-xl font-bold text-green-400">QUALITY ALWAYS</h3>
               </div>
-              <div className="space-y-1 md:space-y-1.5 text-xs md:text-sm">
+              <div className="space-y-1.5 text-sm">
                 <div className="flex items-start gap-2">
                   <Target className="h-3 w-3 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Maintain pasteurization unit (PU) values within specification limits</span>
+                  <span>Perform Critical Control Point (CCP) checks</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Thermometer className="h-3 w-3 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Monitor temperature profiles across all heating and cooling zones</span>
+                  <Droplet className="h-3 w-3 text-green-400 mt-1 flex-shrink-0" />
+                  <span>Conduct CIP and sanitation procedures</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Search className="h-3 w-3 text-green-400 mt-1 flex-shrink-0" />
-                  <span>Conduct regular product temperature checks and record data</span>
+                  <span>Monitor fill levels, temperature & pressure</span>
                 </div>
               </div>
             </div>
@@ -72,45 +70,45 @@ export default function Slide12() {
 
           <div className="grid grid-cols-2 gap-4">
             {/* Volume - Primary */}
-            <div className="bg-gray-800/60 rounded-xl p-3 md:p-4 lg:p-5 border-l-4 border-orange-400">
-              <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                <TrendingUp className="h-5 w-5 md:h-6 md:w-6 text-orange-400" />
-                <h3 className="text-base md:text-lg lg:text-xl font-bold text-orange-400">VOLUME</h3>
+            <div className="bg-gray-800/60 rounded-xl p-5 border-l-4 border-orange-400">
+              <div className="flex items-center gap-3 mb-3">
+                <TrendingUp className="h-6 w-6 text-orange-400" />
+                <h3 className="text-xl font-bold text-orange-400">VOLUME</h3>
               </div>
-              <div className="space-y-1 md:space-y-1.5 text-xs md:text-sm">
+              <div className="space-y-1.5 text-sm">
                 <div className="flex items-start gap-2">
                   <Play className="h-3 w-3 text-orange-400 mt-1 flex-shrink-0" />
-                  <span>Optimize conveyor speed while maintaining pasteurization integrity</span>
+                  <span>Check production orders & BBT availability</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <RotateCcw className="h-3 w-3 text-orange-400 mt-1 flex-shrink-0" />
-                  <span>Minimize heat-up and cool-down times during startup procedures</span>
+                  <span>Execute changeovers & filling operations</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Wrench className="h-3 w-3 text-orange-400 mt-1 flex-shrink-0" />
-                  <span>Prevent chain jams and bottle breakage to avoid production stops</span>
+                  <span>Troubleshoot filler issues efficiently</span>
                 </div>
               </div>
             </div>
 
             {/* Cost - Primary */}
-            <div className="bg-gray-800/60 rounded-xl p-3 md:p-4 lg:p-5 border-l-4 border-purple-400">
-              <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                <DollarSign className="h-5 w-5 md:h-6 md:w-6 text-purple-400" />
-                <h3 className="text-base md:text-lg lg:text-xl font-bold text-purple-400">COST</h3>
+            <div className="bg-gray-800/60 rounded-xl p-5 border-l-4 border-purple-400">
+              <div className="flex items-center gap-3 mb-3">
+                <DollarSign className="h-6 w-6 text-purple-400" />
+                <h3 className="text-xl font-bold text-purple-400">COST</h3>
               </div>
-              <div className="space-y-1 md:space-y-1.5 text-xs md:text-sm">
+              <div className="space-y-1.5 text-sm">
                 <div className="flex items-start gap-2">
                   <Clock className="h-3 w-3 text-purple-400 mt-1 flex-shrink-0" />
-                  <span>Optimize energy consumption through efficient heat recovery systems</span>
+                  <span>Update MES/SAP with downtime details</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <TrendingUp className="h-3 w-3 text-purple-400 mt-1 flex-shrink-0" />
-                  <span>Monitor water usage and implement conservation measures</span>
+                  <span>Maintain production output records</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <BarChart className="h-3 w-3 text-purple-400 mt-1 flex-shrink-0" />
-                  <span>Track chemical usage for cleaning and maintenance optimization</span>
+                  <span>Complete shift performance figures</span>
                 </div>
               </div>
             </div>
@@ -121,24 +119,24 @@ export default function Slide12() {
         <div>
           <h2 className="text-3xl font-bold text-amber-400 mb-4 flex items-center gap-3">
             <Users2 className="h-7 w-7" />
-            SECONDARY/SUPPORT ROLES: EBI & Filler Support
+            SECONDARY/SUPPORT ROLES: EBI & Team Support
           </h2>
           
           <div className="grid grid-cols-2 gap-4">
-            {/* EBI Support Activities */}
+            {/* Support Activities */}
             <div className="bg-gray-700/50 rounded-xl p-5 border-l-4 border-amber-400">
               <div className="flex items-center gap-3 mb-3">
-                <Eye className="h-6 w-6 text-amber-400" />
-                <h3 className="text-xl font-bold text-amber-400">EBI SUPPORT</h3>
+                <Heart className="h-6 w-6 text-amber-400" />
+                <h3 className="text-xl font-bold text-amber-400">SUPPORT ACTIVITIES</h3>
               </div>
               <div className="space-y-1.5 text-sm">
                 <div className="flex items-start gap-2">
                   <ArrowRightLeft className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Support EBI operator with bottle inspection duties</span>
+                  <span>Support EBI operator with BBT duties</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <AlertCircle className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Assist with reject line clearing and bottle quality issues</span>
+                  <span>Assist with filler reject line issues</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Coffee className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
@@ -146,33 +144,33 @@ export default function Slide12() {
                 </div>
                 <div className="flex items-start gap-2">
                   <MessageCircle className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Support BGE at pasteuriser discharge operations</span>
+                  <span>Provide shift handover communications</span>
                 </div>
               </div>
             </div>
 
-            {/* Filler Coordination */}
+            {/* Communication & Documentation */}
             <div className="bg-gray-700/50 rounded-xl p-5 border-l-4 border-amber-400">
               <div className="flex items-center gap-3 mb-3">
-                <Heart className="h-6 w-6 text-amber-400" />
-                <h3 className="text-xl font-bold text-amber-400">FILLER COORDINATION</h3>
+                <FileText className="h-6 w-6 text-amber-400" />
+                <h3 className="text-xl font-bold text-amber-400">COMMUNICATION & DOCS</h3>
               </div>
               <div className="space-y-1.5 text-sm">
                 <div className="flex items-start gap-2">
-                  <Target className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Coordinate temperature control with filling operations</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Timer className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Support filler changeovers and product transitions</span>
-                </div>
-                <div className="flex items-start gap-2">
                   <MessageSquare className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Provide process communications for production flow</span>
+                  <span>Send shift communications every 2 hours</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <ClipboardList className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
-                  <span>Never operate alone in area - PA relief required</span>
+                  <span>Complete Manufacturing Data Tracking (MDT)</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Camera className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
+                  <span>Send daily performance pictures</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <TrendingUp className="h-3 w-3 text-amber-400 mt-1 flex-shrink-0" />
+                  <span>Update autonomous boards status</span>
                 </div>
               </div>
             </div>
