@@ -68,10 +68,14 @@ export default function Slide7() {
   return (
     <div className="slide-container w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col p-4 md:p-6 lg:p-8 text-white">
       {/* Header */}
-      <header className="flex-none text-center mb-6">
-        <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">CREW ARMY METHOD AND PRINCIPLES</h1>
-        <p className="text-2xl text-gray-300 mt-2">Our Method and Principle</p>
-      </header>
+      <div className="flex items-center justify-center py-2 md:py-16 lg:py-24 md:mt-16 lg:mt-24">
+        <div className="flex items-center gap-2 md:gap-4">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">CREW ARMY METHOD AND PRINCIPLES</h1>
+        </div>
+      </div>
+      <div className="text-center mb-6">
+        <p className="text-2xl text-gray-300">Our Method and Principle</p>
+      </div>
 
       {/* Main Body - Method and Principle Sections */}
       <main className="flex-1 flex flex-col gap-6">
