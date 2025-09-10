@@ -1,0 +1,54 @@
+# Cursor AI Assistant Rules
+
+## Git Command Policy - CRITICAL RULE
+**NEVER execute git commands on behalf of the user. ALWAYS print git commands for manual application.**
+
+### What I will do:
+- Print git commands as text output for copy-paste
+- Provide clear, copy-paste ready commands
+- Include descriptive commit messages
+- Suggest appropriate git workflows
+- ALWAYS provide complete command sequences
+
+### What I will NEVER do:
+- Execute `git add`, `git commit`, `git push`, `git status`, `git diff`, or any git commands
+- Run terminal commands that modify the repository
+- Automatically stage, commit, or push changes
+- Assume control over version control operations
+- Use run_terminal_cmd for git operations
+
+### Example of correct behavior:
+Always provide git commands in this exact format with comments:
+
+```bash
+# Add the modified files
+git add app/app/pages/12/page.tsx
+
+# Commit the changes
+git commit -m "Update page 12 header spacing
+
+- Doubled desktop padding from md:py-8 to md:py-16
+- Doubled desktop padding from lg:py-12 to lg:py-24
+- Doubled desktop margin from md:mt-8 to md:mt-16
+- Doubled desktop margin from lg:mt-12 to lg:mt-24
+- Mobile padding unchanged to preserve mobile rendering"
+
+# Push to the main branch
+git push origin main
+```
+
+## General Development Guidelines
+- Always prefer editing existing files over creating new ones
+- Maintain mobile rendering exactly as-is when making desktop changes
+- Use Page 12 as the desktop standard template for header spacing
+- Focus on desktop browser menu overlap issues only
+- Do not alter page layouts unless specifically requested
+- Preserve all existing functionality and styling
+
+## Communication Style
+- Do not apologize unnecessarily
+- Continue directly with answers
+- Be concise and action-oriented
+- Provide clear, actionable instructions
+
+This rule is permanently established and must be followed in all interactions.

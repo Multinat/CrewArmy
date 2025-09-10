@@ -299,3 +299,5 @@ If you encounter any issues while setting up or running this presentation:
 **Built with ❤️ using Next.js, React, and Tailwind CSS**
 
 *Last Updated: December 2024*
+
+<!-- Updated with improved desktop header spacing for better browser compatibility -->
