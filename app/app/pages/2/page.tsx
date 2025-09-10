@@ -4,7 +4,7 @@ export default function Slide2() {
   return (
     <div className="slide-container w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col text-white p-4 lg:pt-12">
       {/* Header */}
-      <div className="flex-none text-center mb-4 lg:pt-4">
+      <div className="flex-none text-center mb-4 md:pt-8 lg:pt-12">
         <h1 className="text-2xl font-bold">
           OPERATIONAL EXCELLENCE FRAMEWORK
         </h1>
