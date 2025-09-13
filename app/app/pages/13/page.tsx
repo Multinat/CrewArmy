@@ -1,5 +1,3 @@
-
-
 import { Waves, Shield, CheckCircle, TrendingUp, DollarSign, Users, Wrench, Tag, ArrowRightLeft, Coffee, MessageCircle, Heart, Target, Users2 } from 'lucide-react';
 import { getSlideContent, type Slide13Content } from '@/lib/content-manager';
 
