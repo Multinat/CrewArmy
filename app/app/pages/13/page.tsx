@@ -4,7 +4,7 @@ import { getSlideContent, type Slide13Content } from '@/lib/content-manager';
 export default function Slide13() {
   const content = getSlideContent(13) as Slide13Content;
   return (
-    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white md:pt-16">
+    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
