@@ -39,15 +39,12 @@
                     <span class="text-gray-400">No Dev Server Required</span>
                 </div>
                 <div class="flex gap-4">
-                    <button onclick="loadContent()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded flex items-center gap-2">
-                        📥 Load from GitHub
-                    </button>
                     <button onclick="saveContent()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded flex items-center gap-2">
                         💾 Save & Push
                     </button>
                     <a href="https://multinat.github.io/CrewArmy/pages/13a/" target="_blank" 
                        class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded flex items-center gap-2">
-                        👁️ Preview Page 13a
+                        👁️ Preview
                     </a>
                 </div>
             </div>
@@ -57,15 +54,28 @@
                 <div id="statusMessage" class="text-blue-400"></div>
             </div>
 
-            <!-- GitHub Token Input -->
-            <div class="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                <h3 class="text-yellow-400 font-bold mb-2">🔑 GitHub Access Token</h3>
-                <input type="password" id="githubToken" placeholder="Paste your GitHub Personal Access Token here..." 
-                       class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white">
-                <p class="text-sm text-gray-400 mt-2">
-                    Need a token? Go to: GitHub → Settings → Developer settings → Personal access tokens → Generate new token (classic)
-                    <br>Required permissions: repo (full control)
-                </p>
+            <!-- Token Input - Only shown when no token -->
+            <div id="tokenSection" class="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                <h3 class="text-yellow-400 font-bold mb-2">🔑 Enter Token</h3>
+                <div class="flex gap-3 items-end">
+                    <input type="password" id="githubToken" placeholder="Paste access token here..." 
+                           class="flex-1 bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white">
+                    <button onclick="setTokenAndLoad()" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold">
+                        Load
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Content Loaded Section - Hidden initially -->
+            <div id="contentSection" class="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg hidden">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-green-400 font-bold">✅ Ready to Edit</h3>
+                    <button onclick="resetToken()" 
+                            class="text-gray-400 hover:text-gray-300 text-sm underline">
+                        Change Token
+                    </button>
+                </div>
             </div>
 
             <!-- Editor Interface - Matches Page 13a Layout -->
@@ -196,12 +206,11 @@
             <div class="mt-8 p-6 bg-gray-800/30 rounded-xl">
                 <h3 class="text-xl font-bold text-blue-400 mb-4">📋 How to Use</h3>
                 <ol class="list-decimal list-inside space-y-2 text-gray-300">
-                    <li>Enter your GitHub Personal Access Token above</li>
-                    <li>Click "Load from GitHub" to fetch current content</li>
-                    <li>Edit the text items directly</li>
-                    <li>Add new items with the ➕ buttons</li>
-                    <li>Click "Save & Push" to commit changes to GitHub</li>
-                    <li>View changes on the live site (may take 5-10 minutes)</li>
+                    <li>Enter your token and click "Load"</li>
+                    <li>Edit text in any section below</li>
+                    <li>Add new items with ➕ buttons</li>
+                    <li>Click "Save & Push" to update</li>
+                    <li>View changes on live site (5-10 minutes)</li>
                 </ol>
             </div>
         </div>
@@ -209,6 +218,7 @@
 
     <script>
         let currentContent = null;
+        let savedToken = null;
 
         function showStatus(message, type = 'info') {
             const alert = document.getElementById('statusAlert');
@@ -235,8 +245,50 @@
             }, 5000);
         }
 
+        function setTokenAndLoad() {
+            const token = document.getElementById('githubToken').value.trim();
+            if (!token) {
+                showStatus('Please enter a token first!', 'error');
+                return;
+            }
+            
+            savedToken = token;
+            localStorage.setItem('editorToken', token);
+            
+            // Hide token section, show content section
+            document.getElementById('tokenSection').classList.add('hidden');
+            document.getElementById('contentSection').classList.remove('hidden');
+            
+            loadContent();
+        }
+        
+        function resetToken() {
+            savedToken = null;
+            localStorage.removeItem('editorToken');
+            document.getElementById('githubToken').value = '';
+            document.getElementById('tokenSection').classList.remove('hidden');
+            document.getElementById('contentSection').classList.add('hidden');
+            currentContent = null;
+            
+            // Clear editor content
+            ['safetyItems', 'qualityItems', 'volumeItems', 'costItems', 'labellerItems', 'infeedItems', 'teamItems'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.innerHTML = '';
+            });
+        }
+        
+        // Check for saved token on page load
+        window.addEventListener('load', function() {
+            const savedTokenFromStorage = localStorage.getItem('editorToken');
+            if (savedTokenFromStorage) {
+                savedToken = savedTokenFromStorage;
+                document.getElementById('githubToken').value = savedTokenFromStorage;
+                setTokenAndLoad();
+            }
+        });
+
         async function loadContent() {
-            const token = document.getElementById('githubToken').value;
+            const token = savedToken || document.getElementById('githubToken').value;
             if (!token) {
                 showStatus('Please enter your GitHub token first!', 'error');
                 return;
