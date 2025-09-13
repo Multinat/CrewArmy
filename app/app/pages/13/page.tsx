@@ -6,7 +6,7 @@ export default function Slide13() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
       {/* Mobile-width container */}
-    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
+    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white pt-20">
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
