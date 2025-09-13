@@ -5,7 +5,9 @@ import { getSlideContent, type Slide3Content } from '@/lib/content-manager';
 export default function Slide3() {
   const content = getSlideContent(3) as Slide3Content;
   return (
-    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      {/* Mobile-width container */}
+    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col" style={{paddingTop: '200px'}}>
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
@@ -78,6 +80,7 @@ export default function Slide3() {
       <div className="flex-none text-center py-4">
         <p className="text-lg text-gray-400">{content.footer}</p>
       </div>
+    </div>
     </div>
   );
 }
