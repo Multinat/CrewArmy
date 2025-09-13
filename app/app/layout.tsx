@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { KeyboardNavigation } from '@/components/keyboard-navigation';
 import { Suspense } from 'react';
-import { AuthWrapper } from '@/components/auth-wrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,21 +28,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen w-full overflow-hidden`}>
-        <AuthWrapper>
-          <Suspense fallback={<div>Loading...</div>}>
-            <KeyboardNavigation />
-          </Suspense>
-          <div className="w-full h-screen overflow-hidden">
-            {children}
-          </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <KeyboardNavigation />
+        </Suspense>
+        <div className="w-full h-screen overflow-hidden">
+          {children}
+        </div>
 
-          {/* Mobile navigation hint */}
-          <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 md:hidden">
-            <div className="bg-black/50 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-slate-600">
-              Use buttons or arrow keys to navigate
-            </div>
+        {/* Mobile navigation hint */}
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 md:hidden">
+          <div className="bg-black/50 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-slate-600">
+            Use buttons or arrow keys to navigate
           </div>
-        </AuthWrapper>
+        </div>
       </body>
     </html>
   );

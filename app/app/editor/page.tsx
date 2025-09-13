@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Eye, Save, Plus, Minus, Edit3, Upload } from 'lucide-react';
+import { Eye, Save, Plus, Minus, Edit3, Upload, TrendingUp, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 
 // Simple content structure
@@ -181,7 +181,7 @@ const ArrayEditor = ({
 
 export default function Editor() {
   const [content, setContent] = useState<SlideContent | null>(null);
-  const [editingSlide, setEditingSlide] = useState<2 | 3 | 13>(2);
+  const [editingSlide, setEditingSlide] = useState<2 | 3 | 13 | '13a'>(2);
   const [message, setMessage] = useState('');
   const [bulkEditMode, setBulkEditMode] = useState<{[key: string]: boolean}>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -517,7 +517,7 @@ export default function Editor() {
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center gap-4">
             <h1 className="text-3xl font-bold text-white">Text Editor</h1>
-            <span className="text-gray-400">Pages 2, 3, 13</span>
+            <span className="text-gray-400">Pages 2, 3, 13, 13a</span>
           </div>
           <div className="flex gap-4">
             <Button 
@@ -546,8 +546,8 @@ export default function Editor() {
         )}
 
         {/* Slide Tabs */}
-        <Tabs value={editingSlide.toString()} onValueChange={(value) => setEditingSlide(parseInt(value) as 2 | 3 | 13)} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-slate-800 border-slate-700">
+        <Tabs value={editingSlide.toString()} onValueChange={(value) => setEditingSlide(value === '13a' ? '13a' : parseInt(value) as 2 | 3 | 13)} className="w-full">
+          <TabsList className="grid w-full grid-cols-4 bg-slate-800 border-slate-700">
             <TabsTrigger value="2" className="data-[state=active]:bg-slate-700 text-white">
               Page 2 - Framework
             </TabsTrigger>
@@ -556,6 +556,9 @@ export default function Editor() {
             </TabsTrigger>
             <TabsTrigger value="13" className="data-[state=active]:bg-slate-700 text-white">
               Page 13 - Bottlewasher
+            </TabsTrigger>
+            <TabsTrigger value="13a" className="data-[state=active]:bg-slate-700 text-green-400">
+              Page 13a - TEST
             </TabsTrigger>
           </TabsList>
 
@@ -1167,6 +1170,111 @@ export default function Editor() {
                     />
                   </div>
                 </div>
+              </div>
+            </Card>
+          </TabsContent>
+
+          {/* Page 13a Editor - Static Editor Test */}
+          <TabsContent value="13a" className="space-y-6 w-full h-auto overflow-visible">
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold text-green-400 flex items-center gap-2">
+                <span>🧪</span> Page 13a - Static Editor Test
+              </h2>
+              <div className="flex gap-4">
+                <Button asChild variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800">
+                  <Link href="/pages/13a" target="_blank">
+                    <Eye className="w-4 h-4 mr-2" />
+                    Preview Page 13a
+                  </Link>
+                </Button>
+                <Button 
+                  onClick={() => window.open('/static-editor-13a.html', '_blank')} 
+                  className="bg-green-600 hover:bg-green-700"
+                >
+                  <Upload className="w-4 h-4 mr-2" />
+                  Open Static Editor
+                </Button>
+              </div>
+            </div>
+
+            {/* Static Editor Demo Interface */}
+            <Card className="bg-black/50 border-slate-700 p-6">
+              <h3 className="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">
+                <span>🌐</span> Static Editor Preview
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Volume Section Example */}
+                <div className="bg-gray-800/60 rounded-xl p-4 border-l-4 border-orange-400">
+                  <div className="flex items-center gap-3 mb-3">
+                    <TrendingUp className="h-6 w-6 text-orange-400" />
+                    <h4 className="text-lg font-bold text-orange-400">📊 VOLUME (Example)</h4>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {content?.slide13?.primaryRoles?.volume?.items?.map((item, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <div className="w-1 h-1 bg-orange-400 rounded-full mt-2"></div>
+                        <input 
+                          type="text" 
+                          value={item}
+                          className="flex-1 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-sm"
+                          placeholder="Edit volume item..."
+                        />
+                      </div>
+                    ))}
+                    <button className="text-orange-400 text-sm hover:text-orange-300 flex items-center gap-1 mt-2">
+                      <Plus className="w-3 h-3" />
+                      Add Volume Item
+                    </button>
+                  </div>
+                </div>
+
+                {/* Cost Section Example */}
+                <div className="bg-gray-800/60 rounded-xl p-4 border-l-4 border-purple-400">
+                  <div className="flex items-center gap-3 mb-3">
+                    <DollarSign className="h-6 w-6 text-purple-400" />
+                    <h4 className="text-lg font-bold text-purple-400">💰 COST (Example)</h4>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {content?.slide13?.primaryRoles?.cost?.items?.map((item, index) => (
+                      <div key={index} className="flex items-start gap-2">
+                        <div className="w-1 h-1 bg-purple-400 rounded-full mt-2"></div>
+                        <input 
+                          type="text" 
+                          value={item}
+                          className="flex-1 bg-slate-700 border border-slate-600 rounded px-2 py-1 text-white text-sm"
+                          placeholder="Edit cost item..."
+                        />
+                      </div>
+                    ))}
+                    <button className="text-purple-400 text-sm hover:text-purple-300 flex items-center gap-1 mt-2">
+                      <Plus className="w-3 h-3" />
+                      Add Cost Item
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                <h4 className="text-green-400 font-bold mb-2">🚀 Static Editor Features:</h4>
+                <ul className="text-sm text-gray-300 space-y-1">
+                  <li>✅ Works without dev server (pure HTML/JavaScript)</li>
+                  <li>✅ Direct GitHub API integration for saving</li>
+                  <li>✅ Accessible from GitHub Pages URL</li>
+                  <li>✅ Edit from any device (mobile, tablet, desktop)</li>
+                  <li>✅ Auto-push changes back to repository</li>
+                </ul>
+              </div>
+
+              <div className="mt-4 flex justify-center">
+                <Button 
+                  onClick={() => alert('Creating static editor file...')}
+                  className="bg-blue-600 hover:bg-blue-700"
+                >
+                  Generate Static Editor File
+                </Button>
               </div>
             </Card>
           </TabsContent>
