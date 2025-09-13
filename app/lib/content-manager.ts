@@ -90,7 +90,23 @@ export interface Slide13Content {
   footer: string;
 }
 
+export interface Slide1Content {
+  title: string;
+  subtitle: string;
+  mission: string;
+  focusAreas: {
+    safety: string;
+    quality: string;
+    volume: string;
+    cost: string;
+  };
+  tagline: string;
+  year: string;
+  framework: string;
+}
+
 export interface SlideContent {
+  slide1: Slide1Content;
   slide2: Slide2Content;
   slide3: Slide3Content;
   slide13: Slide13Content;
@@ -122,10 +138,12 @@ export function saveSlideContent(content: SlideContent): void {
 }
 
 // Get content for a specific slide
-export function getSlideContent(slideNumber: number): Slide2Content | Slide3Content | Slide13Content | null {
+export function getSlideContent(slideNumber: number): Slide1Content | Slide2Content | Slide3Content | Slide13Content | null {
   const allContent = loadSlideContent();
   
   switch (slideNumber) {
+    case 1:
+      return allContent.slide1;
     case 2:
       return allContent.slide2;
     case 3:
@@ -138,10 +156,13 @@ export function getSlideContent(slideNumber: number): Slide2Content | Slide3Cont
 }
 
 // Update content for a specific slide
-export function updateSlideContent(slideNumber: number, newContent: Slide2Content | Slide3Content | Slide13Content): void {
+export function updateSlideContent(slideNumber: number, newContent: Slide1Content | Slide2Content | Slide3Content | Slide13Content): void {
   const allContent = loadSlideContent();
   
   switch (slideNumber) {
+    case 1:
+      allContent.slide1 = newContent as Slide1Content;
+      break;
     case 2:
       allContent.slide2 = newContent as Slide2Content;
       break;
