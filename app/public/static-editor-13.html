@@ -77,6 +77,22 @@
             </div>
 
 
+            <!-- Page Title Editor -->
+            <div class="mb-8 p-6 bg-gray-800/60 rounded-xl border-l-4 border-blue-400">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-2xl">📄</span>
+                    <h2 class="text-xl font-bold text-blue-400">PAGE TITLE</h2>
+                </div>
+                <textarea 
+                    id="pageTitle"
+                    onchange="updatePageTitle(this.value)"
+                    oninput="autoResize(this)"
+                    class="w-full bg-slate-700 border border-slate-600 rounded px-3 py-2 text-white text-lg font-bold leading-tight resize-none overflow-hidden"
+                    rows="1"
+                    style="min-height: 40px; line-height: 1.2;"
+                    placeholder="Enter page title..."></textarea>
+            </div>
+
             <!-- Editor Interface - Matches Page 13 Layout -->
             
             <!-- PRIMARY ROLES Section -->
@@ -322,6 +338,13 @@
         }
 
         function populateEditor(slide13) {
+            // Populate Page Title
+            const titleElement = document.getElementById('pageTitle');
+            if (titleElement && currentContent.slide13.title) {
+                titleElement.value = currentContent.slide13.title;
+                autoResize(titleElement);
+            }
+            
             // Populate Primary Roles (same order as mobile layout)
             populateSection('safetyItems', slide13.primaryRoles.safety.items, 'safety');
             populateSection('qualityItems', slide13.primaryRoles.quality.items, 'quality');
@@ -420,6 +443,11 @@
             }
             
             populateEditor(currentContent.slide13);
+        }
+
+        function updatePageTitle(value) {
+            if (!currentContent) return;
+            currentContent.slide13.title = value;
         }
 
         function autoResize(textarea) {
