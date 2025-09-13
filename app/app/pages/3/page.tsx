@@ -1,7 +1,9 @@
 
 import { Shield, Users, UserCheck } from 'lucide-react';
+import { getSlideContent, type Slide3Content } from '@/lib/content-manager';
 
 export default function Slide3() {
+  const content = getSlideContent(3) as Slide3Content;
   return (
     <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col">
       {/* Header */}
@@ -9,7 +11,7 @@ export default function Slide3() {
         <div className="flex items-center gap-2 md:gap-4">
           <Shield className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-yellow-400" />
           <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
-            SAFETY FIRST - Zero Incidents Through Proactive Prevention
+            {content.title}
           </h1>
         </div>
       </div>
@@ -20,42 +22,24 @@ export default function Slide3() {
         <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-yellow-400 rounded-lg p-4">
           <div className="flex items-center space-x-3 mb-2">
             <Users size={24} className="text-yellow-400" />
-            <h3 className="text-lg font-bold text-white">FRONTLINE RESPONSIBILITIES</h3>
+            <h3 className="text-lg font-bold text-white">{content.frontlineResponsibilities.title}</h3>
           </div>
 
           <div className="space-y-1 mb-3">
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Complete pre-shift safety checks and risk assessments</p>
-            </div>
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Report all hazards and near-misses immediately</p>
-            </div>
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Follow lockout/tagout procedures rigorously</p>
-            </div>
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Maintain situational awareness at all times</p>
-            </div>
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Use proper lifting techniques and ergonomic practices</p>
-            </div>
-            <div className="flex items-start space-x-2">
-              <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
-              <p className="text-base text-gray-200">Mentor colleagues on safety best practices</p>
-            </div>
+            {content.frontlineResponsibilities.items.map((item, index) => (
+              <div key={index} className="flex items-start space-x-2">
+                <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mt-1.5"></div>
+                <p className="text-base text-gray-200">{item}</p>
+              </div>
+            ))}
           </div>
 
           <div className="bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-lg p-3">
-            <h4 className="text-base font-bold text-yellow-400 mb-2">SUCCESS METRICS</h4>
+            <h4 className="text-base font-bold text-yellow-400 mb-2">{content.frontlineResponsibilities.successMetrics.title}</h4>
             <div className="space-y-1">
-              <p className="text-base text-gray-300">• Zero personal incidents/injuries</p>
-              <p className="text-base text-gray-300">• 100% PPE compliance rate</p>
-              <p className="text-base text-gray-300">• Active safety meeting participation</p>
+              {content.frontlineResponsibilities.successMetrics.items.map((item, index) => (
+                <p key={index} className="text-base text-gray-300">• {item}</p>
+              ))}
             </div>
           </div>
         </div>
@@ -64,58 +48,35 @@ export default function Slide3() {
         <div className="bg-gray-800 bg-opacity-60 backdrop-blur border-l-4 border-yellow-400 rounded-lg p-4">
           <div className="flex items-center space-x-3 mb-2">
             <Shield size={24} className="text-yellow-400" />
-            <h3 className="text-lg font-bold text-white">SPECIFIC OPERATOR ACTIONS</h3>
+            <h3 className="text-lg font-bold text-white">{content.operatorActions.title}</h3>
           </div>
 
           <div className="space-y-2 mb-3">
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">EQUIPMENT & TOOLS</h4>
-              <p className="text-sm text-gray-200">• Inspect all tools before use • Report defective equipment immediately • Use right tool for the job • Maintain clean, organized workspace</p>
-            </div>
-            
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">CHEMICAL HANDLING</h4>
-              <p className="text-sm text-gray-200">• Read SDS before handling • Use proper PPE for chemicals • Follow mixing procedures exactly • Store chemicals per requirements</p>
-            </div>
-            
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">MACHINERY OPERATIONS</h4>
-              <p className="text-sm text-gray-200">• Follow startup/shutdown procedures • Monitor gauges and indicators • Never bypass safety devices • Maintain proper guarding</p>
-            </div>
-            
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">EMERGENCY RESPONSE</h4>
-              <p className="text-sm text-gray-200">• Know evacuation routes • Master fire extinguisher use • Practice first aid procedures • Report all incidents promptly</p>
-            </div>
-            
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">COMMUNICATION</h4>
-              <p className="text-sm text-gray-200">• Use clear radio protocols • Confirm understanding • Document safety observations • Share lessons learned</p>
-            </div>
-
-            <div>
-              <h4 className="text-base font-bold text-yellow-400 mb-1">LEADERSHIP & SUPERVISION</h4>
-              <p className="text-sm text-gray-200">• Conduct daily safety walks • Ensure training and resources • Investigate incidents • Champion safety culture • Review procedures • Recognize achievements</p>
-            </div>
+            {content.operatorActions.sections.map((section, index) => (
+              <div key={index}>
+                <h4 className="text-base font-bold text-yellow-400 mb-1">{section.title}</h4>
+                <p className="text-sm text-gray-200">{section.content}</p>
+              </div>
+            ))}
           </div>
 
           <div className="bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-lg p-2 mb-2">
-            <h4 className="text-sm font-bold text-yellow-400 mb-1">FOCUS AREAS</h4>
+            <h4 className="text-sm font-bold text-yellow-400 mb-1">{content.operatorActions.focusAreas.title}</h4>
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">• Safety system effectiveness • Team engagement metrics • Continuous improvement culture</p>
+              <p className="text-sm text-gray-300">{content.operatorActions.focusAreas.content}</p>
             </div>
           </div>
 
           <div className="bg-yellow-500 bg-opacity-20 border border-yellow-500 border-opacity-50 rounded-lg p-2">
-            <p className="text-base font-bold text-yellow-300 text-center">STOP WORK AUTHORITY</p>
-            <p className="text-sm text-yellow-200 text-center">Every team member has the right and responsibility to stop unsafe work</p>
+            <p className="text-base font-bold text-yellow-300 text-center">{content.operatorActions.stopWork.title}</p>
+            <p className="text-sm text-yellow-200 text-center">{content.operatorActions.stopWork.subtitle}</p>
           </div>
         </div>
       </div>
 
       {/* Footer */}
       <div className="flex-none text-center py-4">
-        <p className="text-lg text-gray-400">Crew Army | 2025 Team Army Excellence Strategy</p>
+        <p className="text-lg text-gray-400">{content.footer}</p>
       </div>
     </div>
   );

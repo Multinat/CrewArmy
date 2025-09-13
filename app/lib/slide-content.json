@@ -1,0 +1,173 @@
+{
+  "slide2": {
+    "title": "OPERATIONAL EXCELLENCE FRAMEWORK",
+    "subtitle": "Four Pillars of Crew Army Success",
+    "vpoWheel": {
+      "centerText": "VPO",
+      "centerSubtext": "Excellence",
+      "safety": {
+        "title": "SAFETY",
+        "subtitle": "Zero Harm"
+      },
+      "quality": {
+        "title": "QUALITY",
+        "subtitle": "Right First Time"
+      },
+      "volume": {
+        "title": "VOLUME",
+        "subtitle": "Optimal Output"
+      },
+      "cost": {
+        "title": "COST",
+        "subtitle": "Efficiency"
+      }
+    },
+    "autonomousTeam": {
+      "title": "AUTONOMOUS TEAM APPROACH",
+      "bulletPoints": [
+        "Frontline teams empowered to make real-time operational decisions",
+        "Root cause problem-solving at the point of impact",
+        "Continuous improvement driven by those closest to the work",
+        "Cross-functional collaboration for optimal outcomes",
+        "Data-driven decision making with immediate feedback loops",
+        "Ownership and accountability at every level of operation"
+      ],
+      "coreEnablers": {
+        "title": "CORE ENABLERS",
+        "items": [
+          "Clear authority and decision-making boundaries",
+          "Real-time performance visibility and metrics",
+          "Structured problem-solving methodologies",
+          "Regular coaching and capability development"
+        ]
+      }
+    }
+  },
+  "slide3": {
+    "title": "SAFETY FIRST - Zero Incidents Through Proactive Prevention",
+    "frontlineResponsibilities": {
+      "title": "FRONTLINE RESPONSIBILITIES",
+      "items": [
+        "Complete pre-shift safety checks and risk assessments",
+        "Report all hazards and near-misses immediately",
+        "Follow lockout/tagout procedures rigorously",
+        "Maintain situational awareness at all times",
+        "Use proper lifting techniques and ergonomic practices",
+        "Mentor colleagues on safety best practices",
+        "new item yippee"
+      ],
+      "successMetrics": {
+        "title": "SUCCESS METRICS",
+        "items": [
+          "Zero personal incidents/injuries",
+          "100% PPE compliance rate",
+          "Active safety meeting participation"
+        ]
+      }
+    },
+    "operatorActions": {
+      "title": "SPECIFIC OPERATOR ACTIONS",
+      "sections": [
+        {
+          "title": "EQUIPMENT & TOOLS",
+          "content": "• Inspect all tools before use • Report defective equipment immediately • Use right tool for the job • Maintain clean, organized workspace"
+        },
+        {
+          "title": "CHEMICAL HANDLING",
+          "content": "• Read SDS before handling • Use proper PPE for chemicals • Follow mixing procedures exactly • Store chemicals per requirements"
+        },
+        {
+          "title": "MACHINERY OPERATIONS",
+          "content": "• Follow startup/shutdown procedures • Monitor gauges and indicators • Never bypass safety devices • Maintain proper guarding"
+        },
+        {
+          "title": "EMERGENCY RESPONSE",
+          "content": "• Know evacuation routes • Master fire extinguisher use • Practice first aid procedures • Report all incidents promptly"
+        },
+        {
+          "title": "COMMUNICATION",
+          "content": "• Use clear radio protocols • Confirm understanding • Document safety observations • Share lessons learned"
+        },
+        {
+          "title": "LEADERSHIP & SUPERVISION",
+          "content": "• Conduct daily safety walks • Ensure training and resources • Investigate incidents • Champion safety culture • Review procedures • Recognize achievements"
+        }
+      ],
+      "focusAreas": {
+        "title": "FOCUS AREAS",
+        "content": "• Safety system effectiveness • Team engagement metrics • Continuous improvement culture"
+      },
+      "stopWork": {
+        "title": "STOP WORK AUTHORITY",
+        "subtitle": "Every team member has the right and responsibility to stop unsafe work"
+      }
+    },
+    "footer": "Crew Army | 2025 Team Army Excellence Strategy"
+  },
+  "slide13": {
+    "title": "BOTTLEWASHER - ROLES & RESPONSIBILITIES",
+    "primaryRoles": {
+      "sectionTitle": "PRIMARY ROLES: Bottlewasher Operations",
+      "safety": {
+        "title": "SAFETY FIRST",
+        "items": [
+          "Follow LOTOTO procedures during maintenance",
+          "Identify hazards (chemicals, high temperatures)",
+          "Raise daily SIO with Root and Near Cause"
+        ]
+      },
+      "quality": {
+        "title": "QUALITY ALWAYS",
+        "items": [
+          "Monitor washing quality (temperature, chemicals)",
+          "Perform CIP and sanitation for HACCP compliance",
+          "Quality checks including titration and verification"
+        ]
+      },
+      "volume": {
+        "title": "VOLUME",
+        "items": [
+          "Start-up, shut down, and changeover operations",
+          "Log production, downtime, and waste data in MES/SAP",
+          "Troubleshoot minor issues and report major faults"
+        ]
+      },
+      "cost": {
+        "title": "COST",
+        "items": [
+          "Support sustainability through water/energy optimization",
+          "Drive PIs and complete corrective actions promptly",
+          "Maintain 5S standards for safety and organization"
+        ]
+      }
+    },
+    "secondaryRoles": {
+      "sectionTitle": "SECONDARY/SUPPORT ROLES: Labeller & Infeed Support",
+      "labellerSupport": {
+        "title": "LABELLER SUPPORT",
+        "items": [
+          "Secondary machine operation on labellers",
+          "Provide lunch relief to labeller operators (skilled)",
+          "Support labeller reject line operations"
+        ]
+      },
+      "infeedCoordination": {
+        "title": "INFEED COORDINATION",
+        "items": [
+          "Infeed assistant provides bottlewasher relief",
+          "Infeed assistant supports labellers reject line",
+          "Coordinate bottle pickup support to BGE operator"
+        ]
+      },
+      "teamLeadership": {
+        "title": "TEAM LEADERSHIP",
+        "items": [
+          "Coach peers on safe bottlewasher operation",
+          "Support maintenance/service providers safely",
+          "Ensure safe shift handovers and communication"
+        ]
+      }
+    },
+    "footer": "Crew Army | 2025 Team Army Excellence Strategy"
+  }
+}
