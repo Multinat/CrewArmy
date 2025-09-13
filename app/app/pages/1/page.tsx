@@ -1,6 +1,8 @@
 export default function Slide1() {
   return (
-    <div className="slide-container min-h-screen w-full flex flex-col">
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      {/* Mobile-width container */}
+    <div className="slide-container min-h-screen w-full max-w-md mx-auto flex flex-col" style={{paddingTop: '200px'}}>
       {/* Top Section - Main Title */}
       <div className="text-center mb-4 md:mb-6 w-full">
         <h1 className="slide-title font-bold text-yellow-400 mb-2 px-2 md:px-4">
@@ -44,6 +46,7 @@ export default function Slide1() {
         <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white opacity-80">2025</p>
         <p className="text-sm md:text-base lg:text-lg text-gray-300">Strategic Implementation Framework</p>
       </div>
+    </div>
     </div>
   );
 }

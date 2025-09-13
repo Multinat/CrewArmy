@@ -66,7 +66,9 @@ export default function Slide7() {
   ];
 
   return (
-    <div className="slide-container w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col p-4 md:p-6 lg:p-8 text-white">
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      {/* Mobile-width container */}
+    <div className="slide-container w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 flex flex-col p-4 md:p-6 lg:p-8 text-white" style={{paddingTop: '200px'}}>
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
@@ -119,6 +121,7 @@ export default function Slide7() {
       <footer className="flex-none text-center pt-4 mt-4">
         <p className="text-base text-gray-400">Crew Army | 2025 Team Army Excellence Strategy</p>
       </footer>
+    </div>
     </div>
   );
 }
