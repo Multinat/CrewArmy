@@ -9,6 +9,7 @@
 - Include descriptive commit messages
 - Suggest appropriate git workflows
 - ALWAYS provide complete command sequences
+- NEVER include .cursorrules file in git commits or pushes
 
 ### What I will NEVER do:
 - Execute `git add`, `git commit`, `git push`, `git status`, `git diff`, or any git commands
@@ -21,8 +22,8 @@
 Always provide git commands in this exact format with comments:
 
 ```bash
-# Add the modified files
-git add app/app/pages/12/page.tsx
+# Add the modified files (excluding .cursorrules)
+git add app/app/pages/12/page.tsx README.md
 
 # Commit the changes
 git commit -m "Update page 12 header spacing
@@ -39,6 +40,7 @@ git push origin main
 
 ## General Development Guidelines
 - Always prefer editing existing files over creating new ones
+- **NEVER make any adjustments or changes to any mobile page, unless specifically asked for**
 - Maintain mobile rendering exactly as-is when making desktop changes
 - Use Page 12 as the desktop standard template for header spacing
 - Focus on desktop browser menu overlap issues only
