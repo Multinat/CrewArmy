@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { loadSlideContent } from '../../lib/content-manager';
+import { loadSlideContent } from '../../../lib/content-manager';
 
 export default function Slide1() {
   const [content, setContent] = useState<any>(null);
