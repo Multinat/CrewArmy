@@ -121,7 +121,8 @@
         "items": [
           "Monitor washing quality (temperature, chemicals)",
           "Perform CIP and sanitation for HACCP compliance",
-          "Quality checks including titration and verification"
+          "Quality checks including titration and verification",
+          "New is a static edit add"
         ]
       },
       "volume": {
