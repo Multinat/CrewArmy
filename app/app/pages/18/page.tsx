@@ -2,7 +2,9 @@ import { Waves, Shield, CheckCircle, TrendingUp, DollarSign, Target, Users2, Hea
 
 export default function Slide18() {
   return (
-    <div className="slide-container relative w-full min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      {/* Mobile-width container */}
+    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white" style={{paddingTop: '200px'}}>
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
@@ -184,6 +186,7 @@ export default function Slide18() {
           Crew Army | 2025 Team Army Excellence Strategy
         </p>
       </div>
+    </div>
     </div>
   );
 }
