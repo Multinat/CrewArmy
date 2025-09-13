@@ -384,7 +384,7 @@ export default function Editor() {
     }
   };
 
-  const deployToGitHub = async (pageNumber: number) => {
+  const deployToGitHub = async (pageNumber: number | string) => {
     setIsDeploying(true);
     setMessage('');
     

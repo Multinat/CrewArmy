@@ -67,8 +67,16 @@ export function KeyboardNavigation() {
 
     // Keyboard navigation
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ignore if typing in an input field
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+      // Ignore if typing in an input field, textarea, or any contenteditable element
+      if (e.target instanceof HTMLInputElement || 
+          e.target instanceof HTMLTextAreaElement || 
+          (e.target as HTMLElement)?.contentEditable === 'true' ||
+          (e.target as HTMLElement)?.isContentEditable) {
+        return;
+      }
+
+      // Ignore keyboard navigation completely when on editor page
+      if (pathname.includes('/editor') || pathname.includes('/admin')) {
         return;
       }
 
