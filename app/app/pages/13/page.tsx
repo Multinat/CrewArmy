@@ -6,13 +6,13 @@ export default function Slide13() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
       {/* Mobile-width container */}
-    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white pt-96">
+    <div className="slide-container relative w-full max-w-md mx-auto min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white" style="padding-top: 200px;">
       {/* Header */}
       <div className="flex items-center justify-center">
         <div className="flex items-center gap-2 md:gap-4">
           <Waves className="h-6 w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-blue-400" />
           <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-center">
-            {content.title} - DEPLOYMENT TEST
+            {content.title}
           </h1>
         </div>
       </div>
