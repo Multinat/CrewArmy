@@ -1,15 +1,42 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { loadSlideContent } from '../../../lib/content-manager';
+
+interface Slide1Content {
+  title: string;
+  subtitle: string;
+  mission: string;
+  focusAreas: {
+    safety: string;
+    quality: string;
+    volume: string;
+    cost: string;
+  };
+  tagline: string;
+  year: string;
+  framework: string;
+}
 
 export default function Slide1() {
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<Slide1Content | null>(null);
 
   useEffect(() => {
-    loadSlideContent().then(data => {
-      setContent(data.slide1);
-    });
+    // For now, use static content until we implement client-side API route
+    const staticContent: Slide1Content = {
+      title: "2025 TEAM ARMY EXCELLENCE STRATEGY",
+      subtitle: "CREW ARMY - MOBILE READY v2",
+      mission: "Empowering Frontline Excellence Through Strategic Operations",
+      focusAreas: {
+        safety: "Safety First",
+        quality: "Quality Always",
+        volume: "Volume Optimization",
+        cost: "Cost Management"
+      },
+      tagline: "Make Line 1 Great again through AUTONOMOUS TEAMS",
+      year: "2025",
+      framework: "Strategic Implementation Framework"
+    };
+    setContent(staticContent);
   }, []);
 
   if (!content) {
